@@ -1,0 +1,21 @@
+
+class Solution{   
+public:
+    long maximumSumSubarray(int K, vector<int> &Arr , int N){
+        // code here 
+        long int max=0,sum=0;
+        int start=0,end=0;
+        while(end<N){
+            sum=sum+Arr[end];
+            if((end-start+1)==K){
+                if(sum>max)
+                    max=sum;
+                sum=sum-Arr[start];
+                start=start+1;
+            }
+            end=end+1;
+        }
+        return max;
+        
+    }
+};
